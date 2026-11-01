@@ -1,0 +1,82 @@
+/* Стилизация фона (линейный градиент) и центровка */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #667eae 0%, #764ba2 100%);
+    font-family: Arial, sans-serif;
+}
+
+/* Контейнер для самого счётчика */
+.counter-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 20px 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Стилизация кнопок (скругление 5px и градиент) */
+.btn {
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 5px; /* Радиальное скругление 5 пикселей */
+    cursor: pointer;
+    background: linear-gradient(to bottom, #4facfe 0%, #00f2fe 100%);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.1s, opacity 0.3s;
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+/* Состояние неактивной кнопки */
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: #999;
+    box-shadow: none;
+}
+
+/* Окно результата */
+#result {
+    font-size: 36px;
+    font-weight: bold;
+    min-width: 80px;
+    text-align: center;
+    padding: 10px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Окно для сообщения о достижении предела */
+#limit-message {
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px 20px;
+    border-radius: 8px;
+    visibility: hidden; /* Скрыто по умолчанию */
+    opacity: 0;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+#limit-message.show {
+    visibility: visible;
+    opacity: 1;
+}
