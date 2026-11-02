@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Добро пожаловать!</h1>
+    
+    <!-- Вывод персонального приветствия, если имя было введено -->
+    {% if greeting %}
+        <div class="greeting">{{ greeting }}</div>
+    {% endif %}
+
+    <!-- Вывод ошибок валидации формы (например, если поле пустое) -->
+    {% if form.errors %}
+        <div class="error">Пожалуйста, введите имя корректно.</div>
+    {% endif %}
+
+    <!-- Форма отправки данных -->
+    <form method="post">
+        <!-- Токен CSRF для защиты от межсайтовой подделки запросов -->
+        {% csrf_token %}
+        
+        <!-- Поле ввода имени -->
+        {{ form.name }}
+        
+        <!-- Кнопка отправки -->
+        <button type="submit" class="btn">Отправить</button>
+    </form>
+{% endblock %}
