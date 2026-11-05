@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <!-- Указываем кодировку, чтобы русские буквы отображались корректно -->
+    <meta charset="UTF-8">
+    <!-- Настройка для правильного масштабирования на мобильных устройствах -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Заголовок вкладки в браузере -->
+    <title>Кейс-задача № 4: Интерактивный калькулятор</title>
+    <!-- Подключение внешнего файла со стилями (CSS) -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Главный контейнер калькулятора (карточка на экране) -->
+    <div class="calculator-wrapper">
+        
+        <!-- Заголовок калькулятора -->
+        <h2 class="calc-title">Калькулятор</h2>
+        
+        <!-- Блок для ввода первого числа -->
+        <div class="input-group">
+            <!-- Подпись к полю ввода -->
+            <label for="num1">Первое число</label>
+            <!-- Текстовое поле, куда пользователь вводит первое значение. id="num1" нужен для JS -->
+            <input type="text" id="num1" placeholder="Например: 15.5 или -10">
+        </div>
+        
+        <!-- Блок для ввода второго числа -->
+        <div class="input-group">
+            <label for="num2">Второе число</label>
+            <!-- Текстовое поле для второго значения. id="num2" нужен для JS -->
+            <input type="text" id="num2" placeholder="Например: 3 или 0">
+        </div>
+
+        <!-- Сетка для кнопок операций -->
+        <div class="buttons-grid">
+            <!-- При клике вызывается функция calculate с параметром 'sum' (сумма) -->
+            <button onclick="calculate('sum')">Сумма (+)</button>
+            <!-- При клике вызывается функция calculate с параметром 'diff' (разность) -->
+            <button onclick="calculate('diff')">Разность (-)</button>
+            <!-- При клике вызывается функция calculate с параметром 'mult' (умножение) -->
+            <button onclick="calculate('mult')">Произведение (*)</button>
+            <!-- При клике вызывается функция calculate с параметром 'div' (деление) -->
+            <button onclick="calculate('div')">Деление (/)</button>
+        </div>
+
+        <!-- Контейнер для отображения результата или ошибки -->
+        <div class="result-container">
+            <!-- Текст "Результат:" (статичный) -->
+            <span id="result-text">Результат:</span>
+            <!-- Место, куда будет выводиться само число. id="result-value" нужен для JS -->
+            <span class="result-value" id="result-value">0</span>
+        </div>
+    </div>
+
+    <!-- Подключение внешнего файла со скриптами (JS) -->
+    <script src="script.js"></script>
+</body>
+</html>

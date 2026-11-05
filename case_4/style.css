@@ -1,0 +1,143 @@
+/* Сброс базовых отступов у всех элементов для единообразного вида */
+* {
+    box-sizing: border-box; /* Размеры элементов включают отступы и границы */
+    margin: 0;
+    padding: 0;
+}
+
+/* Стили для всего тела страницы */
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif; /* Современный шрифт */
+    background-color: #121212; /* Темный фон (почти черный) */
+    color: #e0e0e0; /* Светлый текст для контраста */
+    display: flex; /* Используем Flexbox для выравнивания */
+    justify-content: center; /* Центрируем по горизонтали */
+    align-items: center; /* Центрируем по вертикали */
+    height: 100vh; /* Высота на весь экран */
+}
+
+/* Стили для самой карточки калькулятора */
+.calculator-wrapper {
+    background-color: #1e1e1e; /* Фон карточки чуть светлее общего */
+    width: 360px; /* Фиксированная ширина */
+    padding: 30px; /* Внутренние отступы */
+    border-radius: 16px; /* Скругление углов */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5); /* Объемная тень */
+    border: 1px solid #333; /* Тонкая рамка */
+}
+
+/* Стили заголовка */
+.calc-title {
+    text-align: center; /* Выравнивание по центру */
+    font-size: 22px; /* Размер шрифта */
+    font-weight: 600; /* Полужирный */
+    margin-bottom: 25px; /* Отступ снизу */
+    color: #ffffff; /* Белый цвет */
+    letter-spacing: 1px; /* Расстояние между буквами */
+}
+
+/* Блоки для полей ввода */
+.input-group {
+    display: flex; /* Флекс для расположения подписи над полем */
+    flex-direction: column; /* Направление - колонка */
+    margin-bottom: 15px; /* Отступ между блоками */
+}
+
+/* Стили подписи к полю */
+.input-group label {
+    font-size: 13px; /* Мелкий шрифт */
+    color: #888; /* Серый цвет */
+    margin-bottom: 5px; /* Небольшой отступ снизу */
+    margin-left: 4px; /* Сдвиг вправо для выравнивания */
+}
+
+/* Стили самого поля ввода */
+input[type="text"] {
+    background-color: #2c2c2c; /* Темно-серый фон */
+    color: #ffffff; /* Белый текст */
+    border: 1px solid #3d3d3d; /* Рамка */
+    padding: 12px 15px; /* Внутренние отступы */
+    font-size: 16px; /* Размер шрифта */
+    border-radius: 8px; /* Скругление */
+    outline: none; /* Убираем стандартную синюю обводку при клике */
+    transition: border-color 0.2s; /* Плавное изменение цвета рамки */
+}
+
+/* Стили поля при фокусе (когда туда кликнули) */
+input[type="text"]:focus {
+    border-color: #bb86fc; /* Фиолетовая рамка */
+}
+
+/* Стили плейсхолдера (текста-подсказки внутри поля) */
+input[type="text"]::placeholder {
+    color: #555; /* Темно-серый */
+}
+
+/* Сетка для кнопок */
+.buttons-grid {
+    display: grid; /* Используем Grid для сетки */
+    grid-template-columns: 1fr 1fr; /* Две колонки одинаковой ширины */
+    gap: 12px; /* Расстояние между кнопками */
+    margin: 25px 0; /* Отступы сверху и снизу */
+}
+
+/* Общие стили для кнопок */
+button {
+    background-color: #333333; /* Темный фон */
+    color: #ffffff; /* Белый текст */
+    border: 1px solid #444; /* Рамка */
+    padding: 14px; /* Внутренние отступы */
+    font-size: 15px; /* Размер шрифта */
+    font-weight: 500; /* Средняя жирность */
+    border-radius: 8px; /* Скругление */
+    cursor: pointer; /* Курсор в виде руки при наведении */
+    transition: all 0.2s ease; /* Плавная анимация всех изменений */
+}
+
+/* Эффект при наведении на кнопку */
+button:hover {
+    background-color: #bb86fc; /* Фиолетовый фон */
+    color: #000000; /* Черный текст */
+    border-color: #bb86fc; /* Фиолетовая рамка */
+    transform: translateY(-2px); /* Кнопка "приподнимается" */
+}
+
+/* Эффект при нажатии на кнопку */
+button:active {
+    transform: translateY(0); /* Кнопка возвращается на место */
+}
+
+/* Контейнер для вывода результата */
+.result-container {
+    background-color: #121212; /* Темный фон (как у всего окна) */
+    padding: 20px; /* Внутренние отступы */
+    border-radius: 8px; /* Скругление */
+    border: 1px solid #333; /* Рамка */
+    text-align: center; /* Текст по центру */
+    display: flex; /* Флекс для колонок */
+    flex-direction: column; /* Элементы друг под другом */
+    gap: 10px; /* Расстояние между элементами */
+}
+
+/* Стили текста "Результат:" */
+#result-text {
+    font-size: 14px; /* Размер шрифта */
+    color: #888; /* Серый цвет */
+    text-transform: uppercase; /* Все буквы заглавные */
+    letter-spacing: 1px; /* Расстояние между буквами */
+}
+
+/* Стили для самого числа результата */
+.result-value {
+    font-size: 32px; /* Крупный шрифт */
+    font-weight: 700; /* Жирный */
+    color: #bb86fc; /* Фиолетовый цвет */
+    word-wrap: break-word; /* Перенос длинных строк */
+}
+
+/* Стили для состояния ошибки (если что-то пошло не так) */
+.result-value.error {
+    color: #cf6679; /* Красный цвет */
+    font-size: 16px; /* Уменьшаем шрифт для текста ошибки */
+    font-weight: 500; /* Менее жирный */
+}
